@@ -14,7 +14,7 @@ module Danger
         self.access_token = fetch_access_token(environment)
         self.pull_request_id = pull_request_id || fetch_pr_from_branch(branch_name)
         self.host = "https://bitbucket.org/"
-        puts "USERNAME: #{@username}
+        puts "USERNAME: #{@username}"
       end
 
       def inspect
