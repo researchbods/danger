@@ -50,6 +50,7 @@ module Danger
         uri = "#{pr_api_endpoint}/comments?pagelen=100&q=deleted+%7E+false+AND+user.username+%7E+%22#{@username}%22"
 
         while uri
+          puts "fetching #{uri}"
           json = fetch_json(URI(uri))
           values += json[:values]
           uri = json[:next]
