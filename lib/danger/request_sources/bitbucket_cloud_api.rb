@@ -14,6 +14,7 @@ module Danger
         self.access_token = fetch_access_token(environment)
         self.pull_request_id = pull_request_id || fetch_pr_from_branch(branch_name)
         self.host = "https://bitbucket.org/"
+        puts "USERNAME: #{@username}
       end
 
       def inspect
@@ -47,7 +48,7 @@ module Danger
       def fetch_comments
         values = []
         # TODO: use a url parts encoder to encode the query
-        uri = "#{pr_api_endpoint}/comments?pagelen=100&q=deleted+%7E+false+AND+user.username+%7E+%22#{@username}%22"
+        uri = "#{pr_api_endpoint}/comments?pagelen=100&q=deleted+%3D+false+AND+user.username+%3D+%22#{@username}%22"
 
         while uri
           puts "fetching #{uri}"
