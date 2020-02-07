@@ -54,6 +54,8 @@ module Danger
           values += json[:values]
           uri = json[:next]
         end
+
+        puts "#{values.count} comments found"
         values
       end
 
